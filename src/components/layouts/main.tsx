@@ -12,10 +12,10 @@ const MainLayout = ({ children }: Props) => {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
-        <title>Boilerplate</title>
+        <title>IP info</title>
       </Head>
 
-      <main>{children}</main>
+      <main className="flex h-screen items-center bg-gray-100">{children}</main>
     </>
   );
 };
