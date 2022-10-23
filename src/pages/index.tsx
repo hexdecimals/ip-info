@@ -55,8 +55,9 @@ const IndexPage: NextPage = ({
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`https://ipinfo.io/?token=${process.env.TOKEN}`);
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
+  const res = await fetch(`https://ipinfo.io/${ip}?token=${process.env.TOKEN}`);
   const data = await res.json();
 
   // Pass data to the page via props
